@@ -7,8 +7,7 @@ jobs:
     docker:
       - image: circleci/node:12.21
     environment:
-      BUILD_ID: $CIRCLE_BUILD_NUM
-      BUILD_ENV: CircleCI
+      CI_COMMIT_SHORT_SHA: $(echo $CIRCLE_SHA1 | cut -c -7)
     steps:
       - checkout
       - setup_remote_docker:
