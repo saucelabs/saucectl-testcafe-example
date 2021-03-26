@@ -7,7 +7,7 @@ jobs:
     docker:
       - image: circleci/node:12.21
     environment:
-      CI_COMMIT_SHORT_SHA: $(echo $CIRCLE_SHA1 | cut -c -7)
+      CI_COMMIT_SHORT_SHA: $CIRCLE_SHA1
     steps:
       - checkout
       - setup_remote_docker:
