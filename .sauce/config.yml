@@ -1,5 +1,7 @@
 apiVersion: v1alpha
 kind: testcafe
+defaults:
+  mode: sauce
 sauce:
   region: us-west-1
   concurrency: 2 # Controls how many suites are executed at the same time.
@@ -11,7 +13,7 @@ sauce:
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
 docker:
-  # Affects how test files are transferred to the docker container when using the docker mode (--test-env docker).
+  # Affects how test files are transferred to the docker container when using the docker mode (--mode docker).
   fileTransfer: copy # Choose between mount|copy.
 testcafe:
   version: 1.11.0
@@ -19,11 +21,13 @@ testcafe:
 rootDir: ./
 suites:
   - name: "Chrome"
+    mode: docker
     browserName: "chrome"
     src:
       - "tests/*.test.js" # test files glob
-    platformName: "mac 11.00" # Only relevant when running a test against the sauce cloud (--test-env sauce).
+    platformName: "mac 11.00" # Only relevant when running a test against the sauce cloud (--mode sauce).
   - name: "Firefox"
+    mode: sauce
     browserName: "firefox"
     src:
       - "tests/*.test.js"
