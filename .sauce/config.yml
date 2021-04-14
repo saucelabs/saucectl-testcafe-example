@@ -28,3 +28,11 @@ suites:
     src:
       - "tests/*.test.js"
     platformName: "mac 11.00"
+
+# Controls what artifacts to fetch when the suite on Sauce Cloud has finished.
+artifacts:
+  download:
+    when: always
+    match:
+      - console.log
+    directory: ./artifacts/
