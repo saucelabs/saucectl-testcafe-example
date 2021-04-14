@@ -21,17 +21,22 @@ testcafe:
 rootDir: ./
 suites:
   - name: "Chrome"
-    mode: docker
+    mode: sauce
     browserName: "chrome"
     src:
       - "tests/*.test.js" # test files glob
     platformName: "mac 11.00" # Only relevant when running a test against the sauce cloud (--mode sauce).
-  - name: "Firefox"
+  - name: "Firefox in docker"
+    mode: docker
+    browserName: "firefox"
+    src:
+      - "tests/*.test.js"
+  - name: "Firefox in sauce"
     mode: sauce
     browserName: "firefox"
     src:
       - "tests/*.test.js"
-    platformName: "mac 11.00"
+    platformName: "Windows 10"
 
 # Controls what artifacts to fetch when the suite on Sauce Cloud has finished.
 artifacts:
