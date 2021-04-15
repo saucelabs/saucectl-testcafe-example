@@ -13,19 +13,18 @@ sauce:
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
 docker:
-  # Affects how test files are transferred to the docker container when using the docker mode (--test-env docker).
+  # Affects how test files are transferred to the docker container when using the docker mode.
   fileTransfer: copy # Choose between mount|copy.
 testcafe:
   version: 1.11.0
 # Controls what files are available in the context of a test run (unless explicitly excluded by .sauceignore).
 rootDir: ./
 suites:
-  - name: "Chrome"
-    mode: sauce
+  - name: "Chrome using global mode setting" # If no `mode` setting for a suite, it should use the global setting.
     browserName: "chrome"
     src:
       - "tests/*.test.js" # test files glob
-    platformName: "mac 11.00" # Only relevant when running a test against the sauce cloud (--test-env sauce).
+    platformName: "mac 11.00" # Only relevant when running a test against the sauce cloud.
   - name: "Firefox in docker"
     mode: docker
     browserName: "firefox"
