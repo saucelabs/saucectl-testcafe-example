@@ -39,6 +39,15 @@ saucectl run --test-env sauce
 
 ![sauce cloud example](assets/sauce_cloud_example.gif)
 
+### In Sauce Cloud with iOS Simulators
+# TODO (change gif file to ios + sauce mode)
+
+```shell
+saucectl run -c .sauce/config_ios.yml --test-env sauce
+```
+
+![sauce cloud example](assets/sauce_cloud_example.gif)
+
 ## The Config
 
 [Follow me](.sauce/config.yml) if you'd like to see how saucectl is configured for this repository. 
