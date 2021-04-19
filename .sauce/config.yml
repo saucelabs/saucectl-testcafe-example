@@ -20,7 +20,7 @@ testcafe:
 # Controls what files are available in the context of a test run (unless explicitly excluded by .sauceignore).
 rootDir: ./
 suites:
-  - name: "Chrome using global mode setting" # If no `mode` setting for a suite, it should use the global setting.
+  - name: "Chrome using global mode setting" # Since the suite doesn't specify the `mode`, it'll inherit the mode specified via `defaults.mode` (see line number 3 and 4 of this config file).
     browserName: "chrome"
     src:
       - "tests/*.test.js" # test files glob
