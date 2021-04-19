@@ -26,7 +26,7 @@ Simply check out this repo and run the appropriate command below :rocket:
 ### In Docker
 
 ```shell
-saucectl run --test-env docker
+saucectl run -c .sauce/config_docker.yml
 ```
 
 ![docker example](assets/docker_example.gif)
@@ -34,7 +34,7 @@ saucectl run --test-env docker
 ### In Sauce Cloud
 
 ```shell
-saucectl run --test-env sauce
+saucectl run -c .sauce/config.yml
 ```
 
 ![sauce cloud example](assets/sauce_cloud_example.gif)
@@ -43,7 +43,7 @@ saucectl run --test-env sauce
 # TODO (change gif file to ios + sauce mode)
 
 ```shell
-saucectl run -c .sauce/config_ios.yml --test-env sauce
+saucectl run -c .sauce/config_ios.yml
 ```
 
 ![sauce cloud example](assets/sauce_cloud_example.gif)
