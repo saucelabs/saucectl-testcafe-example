@@ -29,7 +29,7 @@ Simply check out this repo and run the command below :rocket:
 saucectl run
 ```
 
-![running example](assets/cypress-example.gif)
+![running example](assets/testcafe-example.gif)
 
 ## The Config
 
