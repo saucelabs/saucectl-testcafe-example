@@ -21,12 +21,12 @@ saucectl configure
 
 ## Running The Examples
 
-Simply check out this repo and run the appropriate command below :rocket:
+Simply check out this repo and run the command below :rocket:
 
-### In Docker
+3 test suites are being triggered in `docker` and `sauce` mode. `saucectl` will run the suites marked as `docker` mode firstly and then run the suites which are marked as `sauce` mode.
 
 ```shell
-saucectl run -c .sauce/config_docker.yml
+saucectl run -c .sauce/config.yml
 ```
 
 ![docker example](assets/docker_example.gif)
@@ -46,7 +46,7 @@ saucectl run -c .sauce/config.yml
 saucectl run -c .sauce/config_ios.yml
 ```
 
-![sauce cloud example](assets/sauce_cloud_example.gif)
+![running example](assets/testcafe-example.gif)
 
 ## The Config
 
