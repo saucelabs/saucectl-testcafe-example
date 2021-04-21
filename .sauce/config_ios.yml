@@ -23,13 +23,13 @@ suites:
   - name: iOS Test
     browserName: "safari"
     src:
-      - "tests/*.test.js" # test files glob
+      - "tests/example.ios.test.js" # test files glob
     devices:
       - name: iPhone 12 Simulator
         platformName: iOS
         platformVersions:
           - "14.3"
-      - name: iPad Pro (9.7-inch) Simulator
+      - name: iPad mini (5th generation) Simulator
         platformName: iOS
         platformVersions:
           - "14.3"
