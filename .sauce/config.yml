@@ -36,6 +36,20 @@ suites:
     src:
       - "tests/*.test.js"
     platformName: "Windows 10"
+  - name: iOS Test
+    mode: sauce
+    browserName: "safari"
+    src:
+      - "tests/*.test.js" # test files glob
+    devices:
+      - name: iPhone 12 Simulator
+        platformName: iOS
+        platformVersions:
+          - "14.3"
+      - name: iPad mini (5th generation) Simulator
+        platformName: iOS
+        platformVersions:
+          - "14.3"
 
 # Controls what artifacts to fetch when the suite on Sauce Cloud has finished.
 artifacts:
