@@ -22,3 +22,20 @@ jobs:
         with:
           testing-environment: ""
           concurrency: 10
+  typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install saucectl
+        uses: saucelabs/saucectl-run-action@v1
+        with:
+          skip-run: true
+          testing-environment: ""
+          concurrency: 10
+
+      - name: Testcafe with Typescript
+        run: |
+          cd examples/typescript
+          saucectl run
