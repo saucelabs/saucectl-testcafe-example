@@ -9,7 +9,7 @@
 //  - run Docker in disconnected mode
 //  - name running container "blue-ocean"
 //  - map port 8080 with Jenkins UI
-//  - map volumes for Jenkins data, NPM and Cypress caches
+//  - map volumes for Jenkins data, NPM and caches
 //  - pass Docker socket which allows Jenkins to start worker containers
 //  - download and execute the latest BlueOcean Docker image
 
@@ -42,7 +42,7 @@ pipeline {
     stage('run') {
       steps {
         // This step trigger the test
-        echo 'Run Sauce Cypress Pipeline Test'
+        echo 'Run Sauce Testcafe Pipeline Test'
         sh 'npm install saucectl'
         sh 'npx saucectl run'
       }
