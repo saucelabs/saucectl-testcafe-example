@@ -1,46 +1,32 @@
-import { Selector} from 'testcafe';
+// This test is from TestCafe example
+// https://github.com/DevExpress/testcafe-examples/tree/8f4a2e3556d410d8ffe865bf06b9b887b79b7d0e/examples/change-element-style
+import { ClientFunction, Selector } from 'testcafe';
 
-fixture `Getting Started Sauce demo`
-	.page `https://www.saucedemo.com/`;
+fixture `Change Element Style`
+    .page `https://devexpress.github.io/testcafe/example`;
 
-const Users = {
-	password: 'secret_sauce',
-	standard: 'standard_user',
-	locked: 'locked_out_user'
-};
+test('Hide an element', async t => {
+    const populateButton     = Selector('#populate');
+    const hidePopulateButton = ClientFunction(() => {
+        document.getElementById('populate').style.display = 'none';
+    });
 
-class Login {
-	constructor () {
-		this.usernameEl = Selector('#user-name');
-		this.passwordEl = Selector('#password');
-	}
-}
+    await t.expect(populateButton.visible).ok();
 
-const login = new Login();
+    await hidePopulateButton();
 
-test('SwagLabs username not set', async function (t) {
-	await t
-		.click('.btn_action')
-		// Use the assertion to check if the actual header text is equal to the expected one
-		.expect(Selector('h3, [data-test=error]').innerText).contains('Username is required')
-		.expect(Selector('.error-button').visible).eql(true);
+    await t.expect(populateButton.visible).notOk();
 });
 
-test('SwagLabs locked user login', async function (t) {
-	await t
-		.typeText(login.usernameEl, Users.locked)
-		.typeText(login.passwordEl, Users.password)
-		.click('.btn_action')
-		// Use the assertion to check if the actual header text is equal to the expected one
-		.expect(Selector('h3, [data-test=error]').innerText).contains('Sorry')
-		.expect(Selector('.error-button').visible).eql(true);
-});
+test('Change header color', async t => {
+    const header            = Selector('h1');
+    const removeHeaderColor = ClientFunction(() => {
+        document.querySelector('h1').style.color = '#111';
+    });
 
-test('SwagLabs standard user login', async function (t) {
-	await t
-		.typeText(login.usernameEl, Users.standard)
-		.typeText(login.passwordEl, Users.password)
-		.click('.btn_action')
-		// Use the assertion to check if the actual header text is equal to the expected one
-		.expect(Selector('#inventory_container').visible).eql(true);
+    await t.expect(header.getStyleProperty('color')).eql('rgb(47, 164, 207)');
+
+    await removeHeaderColor();
+
+    await t.expect(header.getStyleProperty('color')).eql('rgb(17, 17, 17)');
 });
