@@ -2,6 +2,8 @@
 
 Example running saucectl with testcafe.
 
+**Note**: If all you want is to publish your TestCafe test results to Sauce Labs (but not run on Sauce Labs), please check out our [TestCafe reporter](https://github.com/saucelabs/testcafe-reporter)!
+
 ## What You'll Need
 
 The steps below illustrate one of the quickest ways to get set up. If you'd like a more in-depth guide, please check out
