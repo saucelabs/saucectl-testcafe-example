@@ -6,7 +6,6 @@ sauce:
   region: us-west-1
   concurrency: 2 # Controls how many suites are executed at the same time.
   metadata:
-    name: saucectl testcafe example
     tags:
       - e2e
       - release team
@@ -24,7 +23,7 @@ suites:
     browserName: "chrome"
     src:
       - "tests/*.test.js" # test files glob
-    platformName: "mac 11.00" # Only relevant when running a test against the sauce cloud.
+    platformName: "macOS 11.00" # Only relevant when running a test against the sauce cloud.
   # - name: "Firefox in docker"
   #   mode: docker
   #   browserName: "firefox"
