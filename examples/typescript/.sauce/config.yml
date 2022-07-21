@@ -6,7 +6,6 @@ sauce:
   region: us-west-1
   concurrency: 2 # Controls how many suites are executed at the same time.
   metadata:
-    name: saucectl testcafe example
     tags:
       - e2e
       - release team
@@ -30,7 +29,7 @@ suites:
     browserName: "firefox"
     src:
       - "tests/*.test.ts"
-    platformName: "Windows 10"
+    platformName: "Windows 11"
   - name: iOS Test
     mode: sauce
     browserName: "safari"
