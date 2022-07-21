@@ -23,7 +23,7 @@ suites:
     browserName: "chrome"
     src:
       - "tests/*.test.js" # test files glob
-    platformName: "macOS 11.00" # Only relevant when running a test against the sauce cloud.
+    platformName: "macOS 12" # Only relevant when running a test against the sauce cloud.
   # - name: "Firefox in docker"
   #   mode: docker
   #   browserName: "firefox"
@@ -34,7 +34,7 @@ suites:
     browserName: "firefox"
     src:
       - "tests/*.test.js"
-    platformName: "Windows 10"
+    platformName: "Windows 11"
   - name: iOS Test
     mode: sauce
     browserName: "safari"
