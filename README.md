@@ -25,8 +25,6 @@ saucectl configure
 
 Simply check out this repo and run the command below :rocket:
 
-4 test suites are being triggered in `docker` and `sauce` mode. `saucectl` will run the suites marked as `docker` mode firstly and then run the suites which are marked as `sauce` mode.
-
 ```shell
 saucectl run
 ```
