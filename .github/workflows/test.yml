@@ -9,6 +9,7 @@ on:
 env:
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
   SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
+  GITHUB_TOKEN: ${{ github.token }}
 
 jobs:
   test:
@@ -18,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Saucectl RUN Docker and Cloud
-        uses: saucelabs/saucectl-run-action@v2
+        uses: saucelabs/saucectl-run-action@v3
         with:
           concurrency: 10
 
@@ -29,7 +30,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Testcafe with Typescript
-        uses: saucelabs/saucectl-run-action@v2
+        uses: saucelabs/saucectl-run-action@v3
         with:
           working-directory: ./examples/typescript
           concurrency: 10
