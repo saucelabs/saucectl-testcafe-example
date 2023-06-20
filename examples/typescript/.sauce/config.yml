@@ -10,7 +10,7 @@ sauce:
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
 testcafe:
-  version: 2.5.0
+  version: 2.6.2
 # Controls what files are available in the context of a test run (unless explicitly excluded by .sauceignore).
 rootDir: ./
 suites:
