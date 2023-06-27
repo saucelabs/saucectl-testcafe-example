@@ -3,12 +3,6 @@ kind: testcafe
 sauce:
   region: us-west-1
   concurrency: 2 # Controls how many suites are executed at the same time.
-  metadata:
-    tags:
-      - e2e
-      - release team
-      - other tag
-    build: Release $CI_COMMIT_SHORT_SHA
 testcafe:
   version: 2.6.2
 # Controls what files are available in the context of a test run (unless explicitly excluded by .sauceignore).
@@ -17,31 +11,36 @@ suites:
   - name: "Chrome on macOS"
     browserName: "chrome"
     src:
-      - "tests/*.test.js" # test files glob
+      - "tests/*.test.ts" # test files glob
     platformName: "macOS 12"
   - name: "Firefox on Windows"
     browserName: "firefox"
     src:
-      - "tests/*.test.js"
+      - "tests/*.test.ts"
     platformName: "Windows 11"
-  - name: iOS Test
-    browserName: "safari"
-    src:
-      - "tests/*.test.js" # test files glob
-    simulators:
-      - name: iPhone 12 Simulator
-        platformName: iOS
-        platformVersions:
-          - "14.3"
-      - name: iPad mini (5th generation) Simulator
-        platformName: iOS
-        platformVersions:
-          - "14.3"
+
+  # - name: iOS Test
+  #   browserName: "safari"
+  #   src:
+  #     - "tests/*.test.js" # test files glob
+  #   simulators:
+  #     - name: iPhone 12 Simulator
+  #       platformName: iOS
+  #       platformVersions:
+  #         - "14.3"
+  #     - name: iPad mini (5th generation) Simulator
+  #       platformName: iOS
+  #       platformVersions:
+  #         - "14.3"
 
 # Controls what artifacts to fetch when the suites have finished.
-artifacts:
-  download:
-    when: always
-    match:
-      - console.log
-    directory: ./artifacts/
+# artifacts:
+#   download:
+#     when: always
+#     match:
+#       - console.log
+#     directory: ./artifacts/
+
+npm:
+  dependencies:
+    - "tsconfig-paths"

@@ -1,6 +1,8 @@
 // This test is from TestCafe example
 // https://github.com/DevExpress/testcafe-examples/tree/8f4a2e3556d410d8ffe865bf06b9b887b79b7d0e/examples/change-element-style
+import 'tsconfig-paths/register';
 import { ClientFunction, Selector } from 'testcafe';
+import { derp } from 'saucederp';
 
 fixture `Change Element Style`
     .page `https://devexpress.github.io/testcafe/example`;
@@ -10,6 +12,8 @@ test('Hide an element', async t => {
     const hidePopulateButton = ClientFunction(() => {
         document.getElementById('populate').style.display = 'none';
     });
+
+    derp();
 
     await t.expect(populateButton.visible).ok();
 

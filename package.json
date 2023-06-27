@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "testcafe": "^3.0.0",
+    "tsconfig-paths": "^4.2.0"
+  }
+}
