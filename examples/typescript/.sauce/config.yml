@@ -10,18 +10,16 @@ sauce:
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
 testcafe:
-  version: 3.0.1
+  version: 3.2.0
 # Controls what files are available in the context of a test run (unless explicitly excluded by .sauceignore).
 rootDir: ./
 suites:
   - name: "Firefox on Windows"
-    mode: sauce
     browserName: "firefox"
     src:
       - "tests/*.test.ts"
     platformName: "Windows 11"
   - name: iOS Test
-    mode: sauce
     browserName: "safari"
     src:
       - "tests/*.test.ts" # test files glob
