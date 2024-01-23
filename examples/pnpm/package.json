@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "pnpm": "^8.7.1",
+    "testing-pnpm": "workspace:^"
+  }
+}
