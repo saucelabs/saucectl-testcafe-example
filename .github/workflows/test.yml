@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Saucectl RUN
-        uses: saucelabs/saucectl-run-action@v3
+        uses: saucelabs/saucectl-run-action@DEVX-2757-cache
         with:
           concurrency: 10
 
@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Testcafe with Typescript
-        uses: saucelabs/saucectl-run-action@v3
+        uses: saucelabs/saucectl-run-action@DEVX-2757-cache
         with:
           working-directory: ./examples/typescript
           concurrency: 10
