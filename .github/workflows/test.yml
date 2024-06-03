@@ -18,8 +18,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Saucectl RUN
-        uses: saucelabs/saucectl-run-action@v3
+      - name: Run saucectl
+        uses: saucelabs/saucectl-run-action@v4
         with:
           concurrency: 10
 
@@ -29,8 +29,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Testcafe with Typescript
-        uses: saucelabs/saucectl-run-action@v3
+      - name: Run saucectl
+        uses: saucelabs/saucectl-run-action@v4
         with:
           working-directory: ./examples/typescript
           concurrency: 10
