@@ -1,6 +1,7 @@
 name: saucectl testcafe tests
 
 on:
+  workflow_dispatch:
   pull_request:
   push:
     branches:
