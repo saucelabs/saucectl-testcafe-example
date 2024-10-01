@@ -34,3 +34,15 @@ jobs:
         with:
           working-directory: ./examples/typescript
           concurrency: 10
+
+  browser-profile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run saucectl
+        uses: saucelabs/saucectl-run-action@v4
+        with:
+          working-directory: ./examples/browser_profile
+          concurrency: 10
