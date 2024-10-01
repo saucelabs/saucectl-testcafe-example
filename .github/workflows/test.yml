@@ -1,4 +1,4 @@
-name: saucectl testcafe tests
+name: Test
 
 on:
   workflow_dispatch:
