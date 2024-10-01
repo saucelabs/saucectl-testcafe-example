@@ -1,0 +1,39 @@
+apiVersion: v1alpha
+kind: testcafe
+sauce:
+  region: us-west-1
+  concurrency: 2 # Controls how many suites are executed at the same time.
+  metadata:
+    tags:
+      - e2e-example
+    build: $CI_COMMIT_SHORT_SHA
+testcafe:
+  version: 3.6.2
+# Controls what files are available in the context of a test run (unless explicitly excluded by .sauceignore).
+rootDir: ./
+suites:
+  - name: "Browser Profile macOS"
+    browserName: "firefox"
+    browserArgs:
+      [
+        "-profile /Volumes/Sauce/saucectl-runners/sauce-testcafe-runner/3.9.0/bundle/__project__/firefox_test_profile",
+      ]
+    src:
+      - "tests/*.test.js"
+    platformName: "macOS 12"
+  - name: "Browser Profile Windows"
+    browserName: "firefox"
+    browserArgs:
+      [
+        "-profile D:\\sauce-testcafe-runner\\3.9.0\\bundle\\__project__\\firefox_test_profile",
+      ]
+    src:
+      - "tests/*.test.js"
+    platformName: "Windows 11"
+
+# env:
+#   SAUCE_FIREFOX_BROWSER_PROFILE: "firefox_test_profile" # Coming soon!
+
+reporters:
+  spotlight: # Prints an overview of failed or otherwise interesting jobs.
+    enabled: true
