@@ -14,8 +14,13 @@ rootDir: ./
 suites:
   - name: "Browser Profile macOS"
     browserName: "firefox"
-    browserArgs:
-      [
+    browserArgs: [
+        # Caution: The path contains a reference to the runner version, '3.9.0'
+        # in this example. The runner version depends on the requested TestCafe
+        # version, but is not identical. You can see the runner version in the
+        # logs during startup:
+        #   Sauce TestCafe Runner 3.9.0
+        #   Running TestCafe 3.6.2
         "-profile /Volumes/Sauce/saucectl-runners/sauce-testcafe-runner/3.9.0/bundle/__project__/firefox_test_profile",
       ]
     src:
