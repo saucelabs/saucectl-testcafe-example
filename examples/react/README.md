@@ -6,7 +6,8 @@ TestCafe tests with saucectl.
 ## What You'll Need
 
 The steps below illustrate one of the quickest ways to get set up. If you'd like
-a more in-depth guide, please check out our [documentation](https://docs.saucelabs.com/dev/cli/saucectl/#installing-saucectl).
+a more in-depth guide, please check out our 
+[documentation](https://docs.saucelabs.com/dev/cli/saucectl/#installing-saucectl).
 
 ### Install `saucectl`
 
@@ -31,9 +32,11 @@ saucectl run
 
 ## Configuration
 
-The test in this example requires the [testcafe-react-selectors]() package so
-it needs to be available in the test environment. We can define a list of
-packages to install before test execution in the saucectl configuration file.
+The test in this example requires the
+[testcafe-react-selectors](https://github.com/DevExpress/testcafe-react-selectors)
+package so it needs to be available in the test environment. We can define a
+list of packages to install before test execution in the saucectl configuration
+file.
 
 ```yaml
 npm:
