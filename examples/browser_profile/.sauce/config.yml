@@ -14,30 +14,24 @@ rootDir: ./
 suites:
   - name: "Browser Profile macOS"
     browserName: "firefox"
-    browserArgs: [
-        # Caution: The path contains a reference to the runner version, '3.9.0'
-        # in this example. The runner version depends on the requested TestCafe
-        # version, but is not identical. You can see the runner version in the
-        # logs during startup:
-        #   Sauce TestCafe Runner 3.9.0
-        #   Running TestCafe 3.6.2
-        "-profile /Volumes/Sauce/saucectl-runners/sauce-testcafe-runner/3.9.0/bundle/__project__/firefox_test_profile",
-      ]
+    env:
+      # Caution: The path contains a reference to the runner version, '3.10.0'
+      # in this example. The runner version depends on the requested TestCafe
+      # version, but is not identical. You can see the runner version in the
+      # logs during startup:
+      #   Sauce TestCafe Runner 3.10.0
+      #   Running TestCafe 3.6.2
+      SAUCE_FIREFOX_BROWSER_PROFILE: "/Volumes/Sauce/saucectl-runners/sauce-testcafe-runner/3.10.0/bundle/__project__/firefox_test_profile"
     src:
       - "tests/*.test.js"
     platformName: "macOS 12"
   - name: "Browser Profile Windows"
     browserName: "firefox"
-    browserArgs:
-      [
-        "-profile D:\\sauce-testcafe-runner\\3.9.0\\bundle\\__project__\\firefox_test_profile",
-      ]
+    env:
+      SAUCE_FIREFOX_BROWSER_PROFILE: "D:\\sauce-testcafe-runner\\3.10.0\\bundle\\__project__\\firefox_test_profile"
     src:
       - "tests/*.test.js"
     platformName: "Windows 11"
-
-# env:
-#   SAUCE_FIREFOX_BROWSER_PROFILE: "firefox_test_profile" # Coming soon!
 
 reporters:
   spotlight: # Prints an overview of failed or otherwise interesting jobs.
