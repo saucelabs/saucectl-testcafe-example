@@ -19,11 +19,6 @@ suites:
     src:
       - "tests/*.test.ts"
     platformName: "Windows 11"
-  - name: "testcafe react example - chrome"
-    browserName: "chrome"
-    src:
-      - "tests/*.test.ts"
-    platformName: "Windows 11"
 
 # Controls what artifacts to fetch when the suites have finished.
 artifacts:
