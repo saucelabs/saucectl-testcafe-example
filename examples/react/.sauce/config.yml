@@ -39,5 +39,3 @@ reporters:
 
 npm:
   usePackageLock: true
-  packages:
-    "testcafe-react-selectors": "^5.0.3"
