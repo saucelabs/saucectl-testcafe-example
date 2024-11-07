@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "testcafe": "3.6.2",
+    "testcafe-react-selectors": "^5.0.3"
+  }
+}

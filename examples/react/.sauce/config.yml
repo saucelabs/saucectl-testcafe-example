@@ -1,0 +1,36 @@
+apiVersion: v1alpha
+kind: testcafe
+sauce:
+  region: us-west-1
+  concurrency: 2
+  metadata:
+    tags:
+      - e2e
+      - release team
+      - other tag
+testcafe:
+  version: 3.6.2
+  configFile: .testcaferc.js
+# Controls what files are available in the context of a test run (unless explicitly excluded by .sauceignore).
+rootDir: ./
+suites:
+  - name: "testcafe react example - firefox"
+    browserName: "firefox"
+    src:
+      - "tests/*.test.ts"
+    platformName: "Windows 11"
+
+# Controls what artifacts to fetch when the suites have finished.
+artifacts:
+  download:
+    when: always
+    match:
+      - console.log
+    directory: ./artifacts/
+
+reporters:
+  spotlight: # Prints an overview of failed or otherwise interesting jobs.
+    enabled: true
+
+npm:
+  usePackageLock: true
