@@ -41,8 +41,6 @@ file.
 ```yaml
 npm:
   usePackageLock: true
-  packages:
-    "testcafe-react-selectors": "^5.0.3"
 ```
 
 Enabling the `usePackageLock` option ensures that the project's package.json and
