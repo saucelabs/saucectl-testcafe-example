@@ -10,14 +10,12 @@ sauce:
       - other tag
     build: Release $CI_COMMIT_SHORT_SHA
 testcafe:
-  version: 3.6.2
+  version: 3.7.0
 # Controls what files are available in the context of a test run (unless explicitly excluded by .sauceignore).
 rootDir: ./
 suites:
   - name: "Chrome on macOS"
     browserName: "chrome"
-    # Temporarily use Chrome 129. This will be removed once TestCafe resolves the issue with Chrome 130 availability.
-    browserVersion: "129"
     src:
       - "tests/*.test.js" # test files glob
     platformName: "macOS 12"
