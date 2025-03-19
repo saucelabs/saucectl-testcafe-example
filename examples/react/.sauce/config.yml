@@ -9,7 +9,7 @@ sauce:
       - release team
       - other tag
 testcafe:
-  version: 3.7.1
+  version: 3.7.2
   configFile: .testcaferc.js
 # Controls what files are available in the context of a test run (unless explicitly excluded by .sauceignore).
 rootDir: ./
