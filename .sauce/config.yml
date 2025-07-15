@@ -37,6 +37,13 @@ suites:
         platformName: iOS
         platformVersions:
           - "14.3"
+  - name: Chrome on macOS 14 ARM
+    browserName: chrome
+    src:
+      - "tests/*.test.js" # test files glob
+    platformName: "macOS 14"
+    armRequired: true
+
 
 # Controls what artifacts to fetch when the suites have finished.
 artifacts:

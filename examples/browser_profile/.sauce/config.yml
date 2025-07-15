@@ -12,6 +12,12 @@ testcafe:
 # Controls what files are available in the context of a test run (unless explicitly excluded by .sauceignore).
 rootDir: ./
 suites:
+  - name: "Browser Profile macOS ARM"
+    browserName: "firefox"
+    src:
+      - "tests/*.test.js"
+    platformName: "macOS 14"
+    armRequired: true
   - name: "Browser Profile macOS"
     browserName: "firefox"
     src:
