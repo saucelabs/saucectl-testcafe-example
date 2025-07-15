@@ -33,6 +33,9 @@ user_pref("app.update.lastUpdateTime.suggest-ingest", 1727459565);
 user_pref("app.update.lastUpdateTime.telemetry_modules_ping", 1727459623);
 user_pref("app.update.lastUpdateTime.xpi-signature-verification", 1727459593);
 user_pref("browser.aboutConfig.showWarning", false);
+user_pref("browser.EULA.3.accepted", true);
+user_pref("browser.EULA.override", true);
+user_pref("browser.rights.3.shown", true);
 user_pref("browser.aboutwelcome.didSeeFinalScreen", true);
 user_pref("browser.bookmarks.addedImportButton", true);
 user_pref("browser.bookmarks.restore_default_bookmarks", false);
@@ -92,7 +95,8 @@ user_pref("browser.shell.defaultBrowserCheckCount", 1);
 user_pref("browser.shell.didSkipDefaultBrowserCheckOnFirstRun", true);
 user_pref("browser.startup.couldRestoreSession.count", 2);
 user_pref("browser.startup.homepage_override.buildID", "20240913135723");
-user_pref("browser.startup.homepage_override.mstone", "130.0.1");
+user_pref("browser.startup.homepage_override.mstone", "ignore");
+user_pref("browser.startup.homepage_override.once", false);
 user_pref("browser.startup.lastColdStartupCheck", 1727482216);
 user_pref(
   "browser.uiCustomization.state",
@@ -107,6 +111,8 @@ user_pref(
   "datareporting.policy.dataSubmissionPolicyNotifiedTime",
   "1727459565197",
 );
+user_pref("datareporting.policy.dataSubmissionPolicyBypassNotification", true);
+user_pref("datareporting.policy.firstRunURL", "");
 user_pref("devtools.everOpened", true);
 user_pref("devtools.toolbox.footer.height", 999);
 user_pref("devtools.toolbox.selectedTool", "webconsole");
