@@ -18,7 +18,7 @@ suites:
     browserName: "chrome"
     src:
       - "tests/*.test.js" # test files glob
-    platformName: "macOS 12"
+    platformName: "macOS 13"
   - name: "Firefox on Windows"
     browserName: "firefox"
     src:
@@ -37,11 +37,11 @@ suites:
         platformName: iOS
         platformVersions:
           - "14.3"
-  - name: Chrome on macOS 14 ARM
+  - name: Chrome on macOS 15 ARM
     browserName: chrome
     src:
       - "tests/*.test.js" # test files glob
-    platformName: "macOS 14"
+    platformName: "macOS 15"
     armRequired: true
 
 
