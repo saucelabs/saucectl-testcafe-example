@@ -43,6 +43,12 @@ suites:
       - "tests/*.test.js" # test files glob
     platformName: "macOS 15"
     armRequired: true
+  - name: Chrome on macOS 26 ARM
+    browserName: chrome
+    src:
+      - "tests/*.test.js" # test files glob
+    platformName: "macOS 26"
+    armRequired: true
 
 
 # Controls what artifacts to fetch when the suites have finished.
