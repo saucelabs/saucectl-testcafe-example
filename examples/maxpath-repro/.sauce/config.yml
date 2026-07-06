@@ -1,0 +1,43 @@
+apiVersion: v1alpha
+kind: testcafe
+sauce:
+  region: us-west-1
+  concurrency: 1
+  metadata:
+    tags:
+      - maxpath-repro
+      - windows
+    build: "Windows MAX_PATH zip-extraction repro"
+testcafe:
+  version: 3.7.4
+# rootDir is bundled and shipped to the VM. It includes longpath-fixtures/, the
+# deeply-nested file whose path exceeds 260 chars once extracted on Windows.
+rootDir: ./
+suites:
+  # MUST be a Windows platform — the MAX_PATH=260 wall only exists on Windows.
+  # On macOS/Linux VMs chef extracts the same bundle with no problem, so the bug
+  # will NOT reproduce there. That contrast is itself part of the evidence.
+  - name: "maxpath-repro - Windows (expected: Sauce Infrastructure Error)"
+    browserName: "chrome"
+    platformName: "Windows 11"
+    src:
+      - "tests/*.test.js"
+
+  # Optional control suite: same bundle on macOS extracts fine and the test passes.
+  # Uncomment to demonstrate the bug is Windows-specific.
+  # - name: "maxpath-repro - macOS control (expected: PASS)"
+  #   browserName: "chrome"
+  #   platformName: "macOS 13"
+  #   src:
+  #     - "tests/*.test.js"
+
+artifacts:
+  download:
+    when: always
+    match:
+      - console.log
+    directory: ./artifacts/
+
+reporters:
+  spotlight:
+    enabled: true
