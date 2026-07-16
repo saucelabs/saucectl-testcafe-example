@@ -1,0 +1,91 @@
+name: Bump TestCafe version
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  RUNNER_PKG_URL: https://raw.githubusercontent.com/saucelabs/sauce-testcafe-runner/main/package.json
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve target TestCafe version
+        id: target
+        run: |
+          set -euo pipefail
+          VERSION="$(curl -fsSL "$RUNNER_PKG_URL" | jq -r '.dependencies.testcafe')"
+          # Strip any range prefix (^ or ~) so we pin an exact version.
+          VERSION="${VERSION#^}"
+          VERSION="${VERSION#~}"
+          if [ -z "$VERSION" ] || [ "$VERSION" = "null" ]; then
+            echo "::error::Could not read dependencies.testcafe from the runner package.json"
+            exit 1
+          fi
+          echo "Target TestCafe version: $VERSION"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Update example config files
+        id: update
+        run: |
+          set -euo pipefail
+          TARGET="${{ steps.target.outputs.version }}"
+
+          # Find every .sauce/config.yml in the repo.
+          mapfile -t FILES < <(find . -path '*/.sauce/config.yml' -not -path './.git/*' | sort)
+          echo "Found ${#FILES[@]} config file(s)."
+
+          for f in "${FILES[@]}"; do
+            CURRENT="$(grep -E '^\s*version:\s*[0-9]' "$f" | head -n1 | sed -E 's/^\s*version:\s*([0-9]+\.[0-9]+\.[0-9]+).*/\1/' || true)"
+            if [ -z "$CURRENT" ]; then
+              echo "  - $f: no testcafe version line found, skipping"
+              continue
+            fi
+            if [ "$CURRENT" = "$TARGET" ]; then
+              echo "  - $f: already at $TARGET"
+              continue
+            fi
+            # Replace only the semver, preserving indentation and any trailing comment.
+            sed -i -E "s/^(\s*version:\s*)[0-9]+\.[0-9]+\.[0-9]+(.*)\$/\1${TARGET}\2/" "$f"
+            echo "  - $f: $CURRENT -> $TARGET"
+          done
+
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Everything already matches $TARGET. Nothing to do."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create draft PR
+        if: steps.update.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TARGET="${{ steps.target.outputs.version }}"
+          MONTH="$(date +%B)"
+
+          BRANCH="testcafe-${TARGET}"
+          TITLE="Bump examples to testcafe ${TARGET} (${MONTH} default)"
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout -b "$BRANCH"
+          git commit -am "$TITLE"
+          git push -u origin "$BRANCH" --force-with-lease
+
+          gh pr create \
+            --draft \
+            --base main \
+            --head "$BRANCH" \
+            --title "$TITLE" \
+            --body "Bumps the TestCafe version in all example \`.sauce/config.yml\` files to \`${TARGET}\`, matching the version pinned in [\`saucelabs/sauce-testcafe-runner\`](https://github.com/saucelabs/sauce-testcafe-runner/blob/main/package.json)."
