@@ -23,7 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Run saucectl
-        uses: saucelabs/saucectl-run-action@v4
+      - name: Saucectl Run Action
+        uses: saucelabs/saucectl-run-action@v4.4.0
         with:
           concurrency: 2
