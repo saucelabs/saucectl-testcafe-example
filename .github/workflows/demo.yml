@@ -1,0 +1,29 @@
+name: Sauce Labs Demo
+
+# Minimal single-job workflow for recording the GitHub integration demo.
+# Trigger it live from the Actions tab ("Run workflow") or with a push to the
+# demo branch, then follow the job into the Sauce Labs dashboard.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - demo
+
+env:
+  SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+  SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+  GITHUB_TOKEN: ${{ github.token }}
+
+jobs:
+  sauce-demo:
+    name: Run tests on Sauce Labs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run saucectl
+        uses: saucelabs/saucectl-run-action@v4
+        with:
+          concurrency: 2
