@@ -1,0 +1,57 @@
+Running version 0.208.0
+[90m16:53:51[0m [31mWRN[0m A new version of saucectl is available (v0.212.0)
+[90m16:53:51[0m [32mINF[0m Running Testcafe in Sauce Labs. [36mregion=[0mus-west-1 [36mtunnel=[0m
+
+[31mWARNING[0m: The .sauceignore file does not exist. We *highly* recommend creating one so that saucectl does not
+create archives with unnecessary files. You are very likely to experience longer startup times.
+
+For more information, visit https://docs.saucelabs.com/dev/cli/saucectl/usage/use-cases/#excluding-files-from-the-bundle
+
+or peruse some of our example repositories:
+  - https://github.com/saucelabs/saucectl-cypress-example
+  - https://github.com/saucelabs/saucectl-playwright-example
+  - https://github.com/saucelabs/saucectl-testcafe-example
+
+[90m16:53:53[0m [32mINF[0m Archive created. [36mduration=[0m0s [36mfileCount=[0m12 [36mlongestPathLength=[0m100 [36msize=[0m"8 kB"
+[90m16:53:53[0m [32mINF[0m Checking if /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-2465581360/app.zip has already been uploaded previously
+[90m16:53:53[0m [32mINF[0m Checksum: 08bb5f00ac828680dd5cacdd86f9dcfc1cbca13cda528848b54159f2f3082239
+[K[37m⠋[0m Uploading project /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-2465581360/app.zip [K[90m16:53:54[0m [32mINF[0m Project uploaded. [36mduration=[0m1s [36mstorageId=[0m57d62abd-94b6-4065-9eff-d26bbeff8981
+[90m16:53:54[0m [32mINF[0m Checking if /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-2465581360/config.zip has already been uploaded previously
+[90m16:53:54[0m [32mINF[0m Checksum: d3c00edf94772c8ac0e5f9c0f84fd76af9445bc7e8c1782d411da57b201654b9
+[K[37m⠙[0m Uploading runner config /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-2465581360/config.zip [K[90m16:53:55[0m [32mINF[0m Runner Config uploaded. [36mduration=[0m1s [36mstorageId=[0me5badf1a-a673-4fc2-b217-7792a1ffab2b
+[90m16:53:55[0m [32mINF[0m Launching workers. [36mconcurrency=[0m2
+[90m16:53:55[0m [32mINF[0m Starting suite. [36msuite=[0m"watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)"
+[90m16:54:00[0m [32mINF[0m Suite started. [36mbrowser=[0mchrome [36mplatform=[0m"macOS 13" [36msuite=[0m"watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)" [36murl=[0mhttps://app.saucelabs.com/tests/93439ff699884de4adeb3afff40ef0cd
+[90m16:54:05[0m [32mINF[0m Suites in progress: 1
+[90m16:54:15[0m [32mINF[0m Suites in progress: 1
+[90m16:54:25[0m [32mINF[0m Suites in progress: 1
+[90m16:54:35[0m [32mINF[0m Suites in progress: 1
+[90m16:54:45[0m [32mINF[0m Suites in progress: 1
+[90m16:54:55[0m [32mINF[0m Suites in progress: 1
+[90m16:55:05[0m [32mINF[0m Suites in progress: 1
+[90m16:55:15[0m [32mINF[0m Suites in progress: 1
+[90m16:55:25[0m [32mINF[0m Suites in progress: 1
+[90m16:55:35[0m [32mINF[0m Suites in progress: 1
+[90m16:55:45[0m [32mINF[0m Suites in progress: 1
+[90m16:55:55[0m [32mINF[0m Suites in progress: 1
+[90m16:56:05[0m [32mINF[0m Suites in progress: 1
+[90m16:57:48[0m [32mINF[0m Suites in progress: 1
+[90m17:13:35[0m [32mINF[0m Suites in progress: 1
+[90m17:29:06[0m [1m[31mERR[0m[0m Failed to pass threshold [36msuite=[0m"watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)"
+[90m17:29:06[0m [32mINF[0m Suites in progress: 0
+[90m17:29:13[0m [31mWRN[0m Failed to retrieve build id for job () [31merror=[0m[31m"unexpected statusCode: 404"[0m
+[90m17:29:13[0m [1m[31mERR[0m[0m Suite failed to start. [31merror=[0m[31m"failed to retrieve job status for suite watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases): Get \"https://api.us-west-1.saucelabs.com/rest/v1.1/oauth-arvind.singh-29bef/jobs/93439ff699884de4adeb3afff40ef0cd\": dial tcp: lookup api.us-west-1.saucelabs.com: no such host"[0m [36mpassed=[0mfalse [36msuite=[0m"watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)" [36murl=[0m
+
+
+  [34;4;1mResults:[0;24;22m
+
+
+       Name                                                                              Duration    Status    Browser    Attempts  
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  [31m✖[0m    watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)       2m39s    [31mfailed[0m    chrome            1  
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  [31m✖[0m    1 of 1 suites have failed (100%)                                                     2m47s                                   
+
+  [34mBuild Link:[0m [4mN/A[24m
+
+EXIT: 1
