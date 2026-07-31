@@ -1,0 +1,67 @@
+Running version 0.208.0
+16:27:33 WRN A new version of saucectl is available (v0.212.0)
+16:27:34 INF Running Testcafe in Sauce Labs. region=us-west-1 tunnel=
+
+WARNING: The .sauceignore file does not exist. We *highly* recommend creating one so that saucectl does not
+create archives with unnecessary files. You are very likely to experience longer startup times.
+
+For more information, visit https://docs.saucelabs.com/dev/cli/saucectl/usage/use-cases/#excluding-files-from-the-bundle
+
+or peruse some of our example repositories:
+  - https://github.com/saucelabs/saucectl-cypress-example
+  - https://github.com/saucelabs/saucectl-playwright-example
+  - https://github.com/saucelabs/saucectl-testcafe-example
+
+16:27:35 INF Archive created. duration=0s fileCount=6 longestPathLength=24 size="4 kB"
+16:27:35 INF Checking if /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-3905228943/config.zip has already been uploaded previously
+16:27:35 INF Checksum: 567ac971c1bdb22308f44e67d62716eba191e901d734112fdb765923615267ab
+⠋ Uploading runner config /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-3905228943/config.zip 16:27:37 INF Runner Config uploaded. duration=1s storageId=bf5df6e4-8922-4aaa-aba6-a5497ae96a62
+16:27:37 INF Checking if /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-3905228943/app.zip has already been uploaded previously
+16:27:37 INF Checksum: 58a3be603b7993e4de373bb5c7d2ec3183ca62738b739a6aaccad1a6a470d816
+⠙ Uploading project /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-3905228943/app.zip 16:27:38 INF Project uploaded. duration=1s storageId=aa457cd9-820c-45ae-a01f-06f3de8d0ba6
+16:27:38 INF Launching workers. concurrency=2
+16:27:38 INF Starting suite. suite="watchdog-repro - testcafe 3.7.4 / runner v3.17 (expect: pass)"
+16:27:42 INF Suite started. browser=chrome platform="macOS 13" suite="watchdog-repro - testcafe 3.7.4 / runner v3.17 (expect: pass)" url=https://app.saucelabs.com/tests/f01aaa6404424cf7839d771010ee9520
+16:27:48 INF Suites in progress: 1
+16:27:58 INF Suites in progress: 1
+16:28:08 INF Suites in progress: 1
+16:28:18 INF Suites in progress: 1
+16:28:28 INF Suites in progress: 1
+16:28:38 INF Suites in progress: 1
+16:28:48 INF Suites in progress: 1
+16:28:58 INF Suites in progress: 1
+16:29:08 INF Suites in progress: 1
+16:29:18 INF Suites in progress: 1
+16:29:28 INF Suites in progress: 1
+16:29:38 INF Suites in progress: 1
+16:29:48 INF Suites in progress: 1
+16:29:58 INF Suites in progress: 1
+16:30:08 INF Suites in progress: 1
+16:30:18 INF Suites in progress: 1
+16:30:28 INF Suites in progress: 1
+16:30:38 INF Suites in progress: 1
+16:30:48 INF Suites in progress: 1
+16:30:58 INF Suites in progress: 1
+16:31:08 INF Suites in progress: 1
+16:31:18 INF Suites in progress: 1
+16:31:28 INF Suites in progress: 1
+16:31:38 INF Suites in progress: 1
+16:31:48 INF Suites in progress: 1
+16:31:58 INF Suites in progress: 1
+16:32:08 INF Suites in progress: 1
+16:32:12 INF Passed threshold suite="watchdog-repro - testcafe 3.7.4 / runner v3.17 (expect: pass)"
+16:32:14 INF Suite passed. passed=true suite="watchdog-repro - testcafe 3.7.4 / runner v3.17 (expect: pass)" url=https://app.saucelabs.com/tests/f01aaa6404424cf7839d771010ee9520
+
+
+  Results:
+
+
+       Name                                                             Duration    Status    Browser       Platform    Attempts  
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✔    watchdog-repro - testcafe 3.7.4 / runner v3.17 (expect: pass)       4m35s    passed    chrome 150    Mac 13             1  
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✔    All suites have passed                                              4m39s                                                  
+
+  Build Link: https://app.saucelabs.com/builds/vdc/21a7120cfa7a3b5c85cfe6505600f36e
+
+EXIT: 0

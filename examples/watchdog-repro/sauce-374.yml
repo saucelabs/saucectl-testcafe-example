@@ -1,0 +1,26 @@
+# CONTROL, EXPECTED TO PASS: testcafe 3.7.4 -> sauce-testcafe-runner v3.17,
+# which predates the no-output watchdog. Same quiet 4-minute test completes.
+apiVersion: v1alpha
+kind: testcafe
+sauce:
+  region: us-west-1
+  concurrency: 2
+  metadata:
+    tags:
+      - watchdog-repro
+    build: watchdog-repro-testcafe-3.7.4
+testcafe:
+  version: 3.7.4
+rootDir: ./
+suites:
+  - name: "watchdog-repro - testcafe 3.7.4 / runner v3.17 (expect: pass)"
+    browserName: "chrome"
+    platformName: "macOS 13"
+    src:
+      - "tests/quiet-long-test.js"
+artifacts:
+  download:
+    when: always
+    match:
+      - console.log
+    directory: ./artifacts/

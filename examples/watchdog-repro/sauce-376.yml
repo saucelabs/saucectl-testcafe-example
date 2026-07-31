@@ -1,0 +1,34 @@
+# testcafe 3.7.6 -> sauce-testcafe-runner v3.19, which has the 180s no-output
+# watchdog (added v3.18 for INT-331). The quiet 4-minute test would be SIGTERMed
+# at ~180s of stdout silence, sauce-test-report.json never written -> "We found
+# no test cases" in the UI.
+#
+# AS WRITTEN THIS PASSES: the env block below raises the watchdog to 900s, which
+# is the workaround to hand customers. Delete that env block to reproduce the
+# original failure (see run-376.log, captured before the override existed).
+apiVersion: v1alpha
+kind: testcafe
+sauce:
+  region: us-west-1
+  concurrency: 2
+  metadata:
+    tags:
+      - watchdog-repro
+    build: watchdog-repro-testcafe-3.7.6
+env:
+  SAUCE_TESTCAFE_NO_PROGRESS_TIMEOUT_SECS: "900"
+testcafe:
+  version: 3.7.6
+rootDir: ./
+suites:
+  - name: "watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)"
+    browserName: "chrome"
+    platformName: "macOS 13"
+    src:
+      - "tests/quiet-long-test.js"
+artifacts:
+  download:
+    when: always
+    match:
+      - console.log
+    directory: ./artifacts/
