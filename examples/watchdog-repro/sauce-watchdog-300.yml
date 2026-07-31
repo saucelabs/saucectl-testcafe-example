@@ -1,0 +1,61 @@
+# Validates the 300s (5 minute) no-output watchdog window on both platforms.
+#
+# The 300s default is not published yet, so the published runner (180s default)
+# is pinned to 300s via SAUCE_TESTCAFE_NO_PROGRESS_TIMEOUT_SECS below. Same code
+# path, same variable — this exercises the 300s window itself.
+#
+# All four suites run the same tests/quiet-test.js, parameterized by QUIET_MS:
+#   240s (60s under)  -> expect PASS
+#   360s (60s over)   -> expect FAIL at ~300s, "We found no test cases"
+# on macOS 13 and Windows 11, because the watchdog reads piped stdout and Node's
+# stdio piping differs by platform.
+apiVersion: v1alpha
+kind: testcafe
+sauce:
+  region: us-west-1
+  concurrency: 4
+  metadata:
+    tags:
+      - watchdog-repro
+      - watchdog-300s
+    build: watchdog-300s-validation
+env:
+  SAUCE_TESTCAFE_NO_PROGRESS_TIMEOUT_SECS: "300"
+testcafe:
+  version: 3.7.6
+rootDir: ./
+suites:
+  - name: "watchdog 300s - macOS - 240s quiet (expect: pass)"
+    browserName: "chrome"
+    platformName: "macOS 13"
+    env:
+      QUIET_MS: "240000"
+    src:
+      - "tests/quiet-test.js"
+  - name: "watchdog 300s - macOS - 360s quiet (expect: killed at 300s)"
+    browserName: "chrome"
+    platformName: "macOS 13"
+    env:
+      QUIET_MS: "360000"
+    src:
+      - "tests/quiet-test.js"
+  - name: "watchdog 300s - Windows - 240s quiet (expect: pass)"
+    browserName: "chrome"
+    platformName: "Windows 11"
+    env:
+      QUIET_MS: "240000"
+    src:
+      - "tests/quiet-test.js"
+  - name: "watchdog 300s - Windows - 360s quiet (expect: killed at 300s)"
+    browserName: "chrome"
+    platformName: "Windows 11"
+    env:
+      QUIET_MS: "360000"
+    src:
+      - "tests/quiet-test.js"
+artifacts:
+  download:
+    when: always
+    match:
+      - console.log
+    directory: ./artifacts/

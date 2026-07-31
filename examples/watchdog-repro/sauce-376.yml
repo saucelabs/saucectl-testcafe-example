@@ -1,7 +1,11 @@
-# EXPECTED TO FAIL: testcafe 3.7.6 -> sauce-testcafe-runner v3.19, which has
-# the 180s no-output watchdog (added v3.18 for INT-331). The quiet 4-minute
-# test gets SIGTERMed at ~180s of stdout silence; sauce-test-report.json is
-# never written -> "We found no test cases" in the UI.
+# testcafe 3.7.6 -> sauce-testcafe-runner v3.19, which has the 180s no-output
+# watchdog (added v3.18 for INT-331). The quiet 4-minute test would be SIGTERMed
+# at ~180s of stdout silence, sauce-test-report.json never written -> "We found
+# no test cases" in the UI.
+#
+# AS WRITTEN THIS PASSES: the env block below raises the watchdog to 900s, which
+# is the workaround to hand customers. Delete that env block to reproduce the
+# original failure (see run-376.log, captured before the override existed).
 apiVersion: v1alpha
 kind: testcafe
 sauce:

@@ -1,8 +1,8 @@
 Running version 0.208.0
-[90m16:27:30[0m [31mWRN[0m A new version of saucectl is available (v0.212.0)
-[90m16:27:31[0m [32mINF[0m Running Testcafe in Sauce Labs. [36mregion=[0mus-west-1 [36mtunnel=[0m
+16:27:30 WRN A new version of saucectl is available (v0.212.0)
+16:27:31 INF Running Testcafe in Sauce Labs. region=us-west-1 tunnel=
 
-[31mWARNING[0m: The .sauceignore file does not exist. We *highly* recommend creating one so that saucectl does not
+WARNING: The .sauceignore file does not exist. We *highly* recommend creating one so that saucectl does not
 create archives with unnecessary files. You are very likely to experience longer startup times.
 
 For more information, visit https://docs.saucelabs.com/dev/cli/saucectl/usage/use-cases/#excluding-files-from-the-bundle
@@ -12,40 +12,40 @@ or peruse some of our example repositories:
   - https://github.com/saucelabs/saucectl-playwright-example
   - https://github.com/saucelabs/saucectl-testcafe-example
 
-[90m16:27:32[0m [32mINF[0m Archive created. [36mduration=[0m0s [36mfileCount=[0m5 [36mlongestPathLength=[0m24 [36msize=[0m"3 kB"
-[90m16:27:32[0m [32mINF[0m Checking if /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-2618059817/app.zip has already been uploaded previously
-[90m16:27:32[0m [32mINF[0m Checksum: 150551b61cc4c5364f08ce3c5ddcabbdf10ec060c1f2d627eb6a8c16fc8cf498
-[K[37m⠋[0m Uploading project /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-2618059817/app.zip [K[90m16:27:34[0m [32mINF[0m Project uploaded. [36mduration=[0m1s [36mstorageId=[0mab25ef39-2893-46b7-beb3-12af7ceeac42
-[90m16:27:34[0m [32mINF[0m Checking if /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-2618059817/config.zip has already been uploaded previously
-[90m16:27:34[0m [32mINF[0m Checksum: dc09a4f0459d48e3e9d7fd32a3c36a2166ddf72eafe101d15c72f327140148b6
-[K[37m⠙[0m Uploading runner config /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-2618059817/config.zip [K[90m16:27:35[0m [32mINF[0m Runner Config uploaded. [36mduration=[0m0s [36mstorageId=[0m6b953d72-980c-4ef2-b70c-836db08c73b3
-[90m16:27:35[0m [32mINF[0m Launching workers. [36mconcurrency=[0m2
-[90m16:27:35[0m [32mINF[0m Starting suite. [36msuite=[0m"watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)"
-[90m16:27:39[0m [32mINF[0m Suite started. [36mbrowser=[0mchrome [36mplatform=[0m"macOS 13" [36msuite=[0m"watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)" [36murl=[0mhttps://app.saucelabs.com/tests/c1ce28f7b26c4b4e8a54f3d3598a4f87
-[90m16:27:45[0m [32mINF[0m Suites in progress: 1
-[90m16:27:55[0m [32mINF[0m Suites in progress: 1
-[90m16:28:05[0m [32mINF[0m Suites in progress: 1
-[90m16:28:15[0m [32mINF[0m Suites in progress: 1
-[90m16:28:25[0m [32mINF[0m Suites in progress: 1
-[90m16:28:35[0m [32mINF[0m Suites in progress: 1
-[90m16:28:45[0m [32mINF[0m Suites in progress: 1
-[90m16:28:55[0m [32mINF[0m Suites in progress: 1
-[90m16:29:05[0m [32mINF[0m Suites in progress: 1
-[90m16:29:15[0m [32mINF[0m Suites in progress: 1
-[90m16:29:25[0m [32mINF[0m Suites in progress: 1
-[90m16:29:35[0m [32mINF[0m Suites in progress: 1
-[90m16:29:45[0m [32mINF[0m Suites in progress: 1
-[90m16:29:55[0m [32mINF[0m Suites in progress: 1
-[90m16:30:05[0m [32mINF[0m Suites in progress: 1
-[90m16:30:15[0m [32mINF[0m Suites in progress: 1
-[90m16:30:25[0m [32mINF[0m Suites in progress: 1
-[90m16:30:35[0m [32mINF[0m Suites in progress: 1
-[90m16:30:45[0m [32mINF[0m Suites in progress: 1
-[90m16:30:55[0m [32mINF[0m Suites in progress: 1
-[90m16:31:05[0m [32mINF[0m Suites in progress: 1
-[90m16:31:10[0m [1m[31mERR[0m[0m Failed to pass threshold [36msuite=[0m"watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)"
-[90m16:31:12[0m [1m[31mERR[0m[0m Suite failed. [36mpassed=[0mfalse [36msuite=[0m"watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)" [36murl=[0mhttps://app.saucelabs.com/tests/c1ce28f7b26c4b4e8a54f3d3598a4f87
-[90m16:31:12[0m [32mINF[0m console.log output: 
+16:27:32 INF Archive created. duration=0s fileCount=5 longestPathLength=24 size="3 kB"
+16:27:32 INF Checking if /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-2618059817/app.zip has already been uploaded previously
+16:27:32 INF Checksum: 150551b61cc4c5364f08ce3c5ddcabbdf10ec060c1f2d627eb6a8c16fc8cf498
+⠋ Uploading project /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-2618059817/app.zip 16:27:34 INF Project uploaded. duration=1s storageId=ab25ef39-2893-46b7-beb3-12af7ceeac42
+16:27:34 INF Checking if /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-2618059817/config.zip has already been uploaded previously
+16:27:34 INF Checksum: dc09a4f0459d48e3e9d7fd32a3c36a2166ddf72eafe101d15c72f327140148b6
+⠙ Uploading runner config /var/folders/b0/0hnj1lt52jd9f0fktyd4qxrh0000gn/T/saucectl-app-payload-2618059817/config.zip 16:27:35 INF Runner Config uploaded. duration=0s storageId=6b953d72-980c-4ef2-b70c-836db08c73b3
+16:27:35 INF Launching workers. concurrency=2
+16:27:35 INF Starting suite. suite="watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)"
+16:27:39 INF Suite started. browser=chrome platform="macOS 13" suite="watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)" url=https://app.saucelabs.com/tests/c1ce28f7b26c4b4e8a54f3d3598a4f87
+16:27:45 INF Suites in progress: 1
+16:27:55 INF Suites in progress: 1
+16:28:05 INF Suites in progress: 1
+16:28:15 INF Suites in progress: 1
+16:28:25 INF Suites in progress: 1
+16:28:35 INF Suites in progress: 1
+16:28:45 INF Suites in progress: 1
+16:28:55 INF Suites in progress: 1
+16:29:05 INF Suites in progress: 1
+16:29:15 INF Suites in progress: 1
+16:29:25 INF Suites in progress: 1
+16:29:35 INF Suites in progress: 1
+16:29:45 INF Suites in progress: 1
+16:29:55 INF Suites in progress: 1
+16:30:05 INF Suites in progress: 1
+16:30:15 INF Suites in progress: 1
+16:30:25 INF Suites in progress: 1
+16:30:35 INF Suites in progress: 1
+16:30:45 INF Suites in progress: 1
+16:30:55 INF Suites in progress: 1
+16:31:05 INF Suites in progress: 1
+16:31:10 ERR Failed to pass threshold suite="watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)"
+16:31:12 ERR Suite failed. passed=false suite="watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)" url=https://app.saucelabs.com/tests/c1ce28f7b26c4b4e8a54f3d3598a4f87
+16:31:12 INF console.log output: 
 Sauce TestCafe Runner 3.19.0
 Running TestCafe 3.7.6
 Preparing npm environment
@@ -58,18 +58,18 @@ Finished
  ✓ Watchdog repro: quiet long-running test - short chatty test passes first
 Sauce TestCafe Runner: no output from child for 180s — terminating.
 JUnit file generation skipped: no test suites detected.
- [36msuite=[0m"watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)"
+ suite="watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)"
 
 
-  [34;4;1mResults:[0;24;22m
+  Results:
 
 
        Name                                                                              Duration    Status    Browser       Platform    Attempts  
 ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  [31m✖[0m    watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)       3m35s    [31mfailed[0m    chrome 150    Mac 13             1  
+  ✖    watchdog-repro - testcafe 3.7.6 / runner v3.19 (expect: killed, no test cases)       3m35s    failed    chrome 150    Mac 13             1  
 ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-  [31m✖[0m    1 of 1 suites have failed (100%)                                                     3m38s                                                  
+  ✖    1 of 1 suites have failed (100%)                                                     3m38s                                                  
 
-  [34mBuild Link:[0m [4mhttps://app.saucelabs.com/builds/vdc/1e094b44df0e34a89c1363028b6a3d7e[24m
+  Build Link: https://app.saucelabs.com/builds/vdc/1e094b44df0e34a89c1363028b6a3d7e
 
 EXIT: 1
