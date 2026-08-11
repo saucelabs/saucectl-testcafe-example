@@ -1,0 +1,54 @@
+# INT-31 demo config — reproduces "Cannot establish one or more browser connections"
+# and shows the retries fix. Run with:
+#   saucectl run --config .sauce/config-int31-demo.yml
+apiVersion: v1alpha
+kind: testcafe
+sauce:
+  region: us-west-1
+  concurrency: 2 # Controls how many suites are executed at the same time.
+  retries: 1 # INT-31 fix: retry a failing suite once so a transient browser-connect flake is absorbed.
+  metadata:
+    tags:
+      - browser-connect
+    build: demo $CI_COMMIT_SHORT_SHA
+testcafe:
+  version: 3.7.4
+rootDir: ./
+suites:
+  # ---------------------------------------------------------------------------
+  # Suite A reproduces the EXACT error Cantina saw, on a real Sauce VM.
+  # browserInitTimeout is set deliberately low so the browser cannot connect back
+  # to TestCafe in time. saucectl passes this straight through (no floor in
+  # SetDefaults), so the run fails with "Cannot establish one or more browser
+  # connections" — the customer's exact error.
+  # NOTE: this is a *permanent* misconfig, not a transient flake, so the global
+  # `sauce.retries: 1` will retry it and it will fail again. That is expected and
+  # itself demonstrates that retries recover *transient* issues, not bad config.
+  - name: "DEMO force connect-failure (low browserInitTimeout)"
+    browserName: "chrome"
+    platformName: "macOS 13"
+    browserInitTimeout: 1000
+    src:
+      - "tests/example.test.js"
+
+  # Suite B is a healthy run with the fix (`sauce.retries: 1`) in place: a normal
+  # browserInitTimeout, so the browser connects and the test passes. If a real
+  # transient connect-flake occurred here, the retry would absorb it.
+  - name: "DEMO healthy run (retries enabled)"
+    browserName: "chrome"
+    platformName: "macOS 13"
+    browserInitTimeout: 120000
+    src:
+      - "tests/example.test.js"
+
+# Controls what artifacts to fetch when the suites have finished.
+artifacts:
+  download:
+    when: always
+    match:
+      - console.log
+    directory: ./artifacts/
+
+reporters:
+  spotlight: # Prints an overview of failed or otherwise interesting jobs.
+    enabled: true

@@ -1,0 +1,36 @@
+apiVersion: v1alpha
+kind: testcafe
+sauce:
+  region: us-west-1
+  concurrency: 1
+  metadata:
+    tags:
+      - INT-31
+      - timeout-repro
+    build: "INT-31 Timeout Reproduction"
+testcafe:
+  version: 3.7.2
+rootDir: ./
+suites:
+  - name: "timeout-repro - all timeouts set"
+    browserName: "chrome"
+    platformName: "macOS 14"
+    src:
+      - "tests/*.test.js"
+    # All 7 TestCafe timeouts are configured.
+    # None of them will fire when the page is stuck during navigation.
+    pageLoadTimeout: 15000       # 15 seconds
+    pageRequestTimeout: 15000    # 15 seconds
+    ajaxRequestTimeout: 15000    # 15 seconds
+    selectorTimeout: 10000       # 10 seconds
+    assertionTimeout: 10000      # 10 seconds
+    # testExecutionTimeout should be the ultimate safety net — but it doesn't work either.
+    testExecutionTimeout: 30000  # 30 seconds
+    timeout: "2m"                # suite timeout: 2 minutes (runner level)
+
+artifacts:
+  download:
+    when: always
+    match:
+      - console.log
+    directory: ./artifacts/
